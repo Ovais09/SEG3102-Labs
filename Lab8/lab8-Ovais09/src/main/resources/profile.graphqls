@@ -1,0 +1,18 @@
+type Query {
+    profiles: [Profile]
+}
+
+type Profile {
+    firstName: String!,
+    lastName: String!,
+    email: String,
+    phoneNumber: String,
+}
+
+type Mutation {
+    createProfile(
+        firstName: String!, 
+        lastName: String!, 
+        email: String, 
+        phoneNumber: String): Profile!
+}

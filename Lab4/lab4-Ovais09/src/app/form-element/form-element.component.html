@@ -1,0 +1,70 @@
+<form [formGroup] = 'profileForm' (ngSubmit) = 'onSubmit(fname, lname, phonenumber, emailNumber, bigform)' method="GET" #bigform>
+
+    <label for="first-name" >First Name: </label>
+    <input id="first-name" type="text" formControlName = 'firstName' #fname required>
+
+    
+
+    <br>
+
+    <label for="last-name">Last Name: </label>
+    <input id="last-name" type="text" formControlName = 'lastName' #lname>
+
+    <br>
+
+    <label for="phone-number">Phone Number: </label>   
+    <input id="phone-number" type="text" formControlName = 'phoneNumber' #phonenumber>
+
+    <br>
+
+    <label for="email">Email: </label>
+    <input id = "email" type="text" formControlName = 'email' #emailNumber>
+
+ 
+
+
+    <!-- <div formGroupName="address">
+        <h2>Address</h2>
+      
+        <label for="street">Street: </label>
+        <input id="street" type="text" formControlName="street">
+      
+        <label for="city">City: </label>
+        <input id="city" type="text" formControlName="city">
+      
+        <label for="state">State: </label>
+        <input id="state" type="text" formControlName="state">
+      
+        <label for="zip">Zip Code: </label>
+        <input id="zip" type="text" formControlName="zip">
+    </div> -->
+
+    <p>Complete the form to enable button.</p>
+    <button type="submit" [disabled] = '!profileForm.valid' [routerLink] = "['table-element']" [state]="{firstName: profileForm.value.firstName, lastName: profileForm.value.lastName, email: profileForm.value.email, phoneNumber: profileForm.value.phoneNumber}">Submit</button>
+
+    <p>Form status: {{profileForm.status}} </p>
+    
+    <div *ngIf ="profileForm.value.firstName == '' " >
+       <p> <b>Please enter a First name</b> </p>
+    </div>
+    
+    <div *ngIf ="profileForm.value.lastName == '' " >
+        <p> <b>Please enter a Last name</b> </p>
+     </div>
+
+
+    <div *ngIf = "profileForm.value.phoneNumber!.length > 0 && profileForm.value.phoneNumber!.length < 10 && profileForm.status == 'INVALID'" >
+        <p> <b>Phone number is too small</b> </p>
+    </div>
+
+    <div *ngIf = "profileForm.value.phoneNumber!.length > 10" >
+        <p> <b>Phone number is too large</b> </p>
+    </div>
+
+    <div *ngIf = "!(profileForm.value.email!.match('@')) && profileForm.status == 'INVALID' && (profileForm.value.firstName!.length > 0 || profileForm.value.lastName!.length > 0) && profileForm.value.email!.length > 0" >
+        <p> <b>Email is wrong format</b> </p>
+    </div>
+
+
+    <!-- <button type="button" (click)="updateProfile()">Update Profile</button> -->
+</form>

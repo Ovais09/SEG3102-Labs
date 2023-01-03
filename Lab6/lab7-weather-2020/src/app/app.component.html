@@ -1,0 +1,74 @@
+<div class="container-sm">
+  <form [formGroup]="weatherForm" (ngSubmit)="submit()" >
+    <div class="row" >
+      <div class="col-sm">
+        <label>
+          Country
+          <mat-select-country appearance="outline"
+                              formControlName="country">
+          </mat-select-country>
+        </label>
+      </div>
+      <div class="col-sm">
+        <label>
+          City
+          <input type="text" class="form-control" name="city" formControlName="city">
+        </label>
+      </div>
+        <div class="col-sm">
+          <button type="submit" class="btn btn-success">Check Weather</button>
+        </div>
+    </div>
+  </form>
+</div>
+<div class="container" *ngIf="message">
+  <div id="message">{{message}}</div>
+</div>
+<div class="container" *ngIf="condition">
+  <div id="city">Current Conditions in {{condition.city}} {{condition.country}} - {{currentDate | date: 'medium' }}</div>
+  <br>
+  <div class="container-sm">
+    <div class="row">
+      <div class="col-sm">
+        <p>Main Condition:</p>
+      </div>
+      <div class="col-sm">
+        <p>{{condition.mainCondition}}</p>
+      </div>
+      <div class="col-sm">
+        <p>Temperature:</p>
+      </div>
+      <div class="col-sm">
+        <p>{{condition.temperature | number}} Celsius</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <p>Pressure:</p>
+      </div>
+      <div class="col-sm">
+        <p>{{condition.pressure | number}} hPa</p>
+      </div>
+      <div class="col-sm">
+        <p>Humidity:</p>
+      </div>
+      <div class="col-sm">
+        <p>{{condition.humidity | number}} %</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <p>Wind Speed:</p>
+      </div>
+      <div class="col-sm">
+        <p>{{condition.windspeed | number}} meter/sec</p>
+      </div>
+      <div class="col-sm">
+        <p><br></p>
+      </div>
+      <div class="col-sm">
+        <p><br></p>
+      </div>
+    </div>
+  </div>
+</div>

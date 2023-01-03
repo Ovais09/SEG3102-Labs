@@ -1,0 +1,13 @@
+<div>
+    <input type = "text" #myInput>
+    <button (click) = "add(myInput.value)">ADD</button>
+</div>
+
+<br />
+<br />
+<br />
+
+<div *ngIf = "elements.length > 0" #myDo> 
+    <app-remove-element *ngFor="let element of elements" [element] = "element">
+    </app-remove-element>
+</div>

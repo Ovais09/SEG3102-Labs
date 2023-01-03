@@ -1,0 +1,38 @@
+<table>
+  <tr>
+    <td>
+      <label for = "fnumber" class = "f-row">First number:</label>
+    </td>
+    <td>
+      <input name = "fnumber" id = "fnumber" class = "f-row"  #fnumber>
+    </td>
+
+  </tr>
+  <tr>
+    <td>
+      <label for = "snumber">Second number:</label>
+    </td>
+    <td>
+      <input name = "snumber" id = "snumber" #snumber>
+    </td>
+    <br/>
+    <br/>
+    <br/>
+  </tr>
+  <tr>
+    <td>
+      <label for = "result">Result:</label>
+    </td>
+    <td>
+      <input name = "result" id = "result" value = "{{result | number: '1.0-2'}}">
+    </td>
+  </tr>
+  <tr>
+    <div>
+      <button type = "button" (click) = "add(fnumber.value, snumber.value)">+</button>
+      <button type = "button" (click) = "subtract(fnumber.value, snumber.value)">-</button>
+      <button type = "button" (click) = "multiply(fnumber.value, snumber.value)">*</button>
+      <button type = "button" (click) = "divide(fnumber.value, snumber.value)">/</button>
+    </div>
+  </tr>
+</table>

@@ -1,0 +1,15 @@
+button {
+    margin-left: 50px;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+/* input field color to blue */
+input {
+    background-color : rgb(114,159,207);
+    color: black;
+}
+
+/* div {
+    margin-top: -20px;
+} */

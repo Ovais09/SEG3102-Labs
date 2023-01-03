@@ -1,0 +1,22 @@
+<div *ngIf="condition1">
+  This displayed when condition1 is true
+</div>
+
+<div *ngIf="condition2; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>This displayed when condition2 is true</ng-template>
+<ng-template #elseBlock>This to be displayed when condition2 false</ng-template>
+
+<div>
+<!--  <button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>-->
+<!--  show = {{show}}-->
+<!--  <br>-->
+<!--  <div *ngIf="show">Text to show</div>-->
+  <button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>
+  <button (click)="switchPrimary()">Switch Primary</button>
+  show = {{show}}
+  <br>
+  <div *ngIf="show; then thenBlock; else elseBlock2">this is ignored</div>
+  <ng-template #primaryBlock>Primary text to show</ng-template>
+  <ng-template #secondaryBlock>Secondary text to show</ng-template>
+  <ng-template #elseBlock2>Alternate text while primary text is hidden</ng-template>
+</div>

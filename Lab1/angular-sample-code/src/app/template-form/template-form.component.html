@@ -1,0 +1,73 @@
+<div class="container">
+  <div [hidden]="submitted">
+<h1>Book Form</h1>
+<form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)">
+  <div class="form-group">
+    <label for="category">Category:</label>
+    <input type="text" class="form-control" id="category" minlength="2" maxlength="5" name="category" ngModel #category="ngModel">
+    <div [hidden]="category.valid"
+         class="alert alert-danger">
+      Category should be between 2 and 5 characters long
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" class="form-control" id="title" required name="title" ngModel #title="ngModel">
+    <div *ngIf="title.control.hasError('required')"
+         class="alert alert-danger">
+      Title is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cost">Cost:</label>
+    <input type="text" class="form-control" id="cost" required name="cost" ngModel #cost="ngModel">
+    <div [hidden]="cost.valid"
+         class="alert alert-danger">
+      Cost is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="author">Author:</label>
+    <input type="text" class="form-control" id="author" name="author" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="year">Year:</label>
+    <input type="text" class="form-control" id="year" name="year" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <textarea cols="40" class="form-control" id="description" name="description" ngModel></textarea>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="bookForm.form.invalid">Submit</button>
+</form>
+  </div>
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Category</div>
+      <div class="col-xs-9">{{ model.category }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Title</div>
+      <div class="col-xs-9">{{ model.title }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Cost</div>
+      <div class="col-xs-9">{{ model.cost }}</div>
+    </div>
+    <div class="row" [hidden]="!model.author">
+      <div class="col-xs-3">Author</div>
+      <div class="col-xs-9">{{ model.author }}</div>
+    </div>
+    <div class="row" [hidden]="!model.year">
+      <div class="col-xs-3">Year</div>
+      <div class="col-xs-9">{{ model.year }}</div>
+    </div>
+    <div class="row" [hidden]="!model.description">
+      <div class="col-xs-3">Description</div>
+      <div class="col-xs-9">{{ model.description }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
+</div>

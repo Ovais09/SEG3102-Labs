@@ -1,0 +1,24 @@
+<div>
+  <h1>Temperature Converter</h1>
+  <table>
+    <tr>
+      <td>
+        <label for="celsius">Celsius</label>
+      </td>
+      <td>
+        <input name="celsius" id="celsius" (keydown.enter) = "celsiusToFahrenheit()" [(ngModel)] = "celsiusValue" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="fahrenheit">Fahrenheit</label>
+      </td>
+      <td>
+        <input name="fahrenheit" id="fahrenheit" (keydown.enter) = "fahrenheitToCelsius()" [(ngModel)] = "fahrenheitValue" />
+      </td>
+    </tr>
+
+  </table>
+
+
+</div>

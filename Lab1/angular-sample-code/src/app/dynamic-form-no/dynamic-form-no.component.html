@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Item Form</h1>
+  <button (click)="addItem()">Add Item</button>
+
+  <form (ngSubmit)="onSubmit()" [formGroup]="itemsForm">
+    <div formArrayName="items">
+      <div *ngFor="let _ of items.controls; let i=index">
+        <ng-container [formGroupName]="i">
+          <!-- ng-container [formGroup]="formGroup(i)" -->
+          <label>
+            Item Name:
+            <input formControlName="name" type="text">
+          </label>
+          <label>
+            Item Unit Price:
+            <input formControlName="unitPrice" type="text">
+          </label>
+          <label>
+            Item Quantity:
+            <input formControlName="quantity" type="text">
+          </label>
+          <button class="btn btn-dark" (click)="removeItem(i)">X</button>
+        </ng-container>
+      </div>
+      <div [hidden]="nbItems < 2">
+        <button class="btn btn-dark" (click)="clearItems()">Delete All</button>
+      </div>
+    </div>
+    <button class="btn btn-success" type="submit">Submit</button>
+  </form>
+
+</div>
+

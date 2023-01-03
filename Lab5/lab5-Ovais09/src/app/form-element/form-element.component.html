@@ -1,0 +1,127 @@
+<form [formGroup] = 'profileForm' (ngSubmit) = 'onSubmit(fname, lname, phonenumber, emailNumber, bigform)' method="GET" #bigform>
+
+    <label for="first-name" >First Name: </label>
+    <input id="first-name" type="text" formControlName = 'firstName' #fname required>
+
+    
+
+    <br>
+
+    <label for="last-name">Last Name: </label>
+    <input id="last-name" type="text" formControlName = 'lastName' #lname>
+
+    <br>
+
+    <label for="phone-number">Phone Number: </label>   
+    <input id="phone-number" type="text" formControlName = 'phoneNumber' #phonenumber>
+
+    <br>
+
+    <label for="email">Email: </label>
+    <input id = "email" type="text" formControlName = 'email' #emailNumber>
+
+ 
+
+
+    <!-- <div formGroupName="address">
+        <h2>Address</h2>
+      
+        <label for="street">Street: </label>
+        <input id="street" type="text" formControlName="street">
+      
+        <label for="city">City: </label>
+        <input id="city" type="text" formControlName="city">
+      
+        <label for="state">State: </label>
+        <input id="state" type="text" formControlName="state">
+      
+        <label for="zip">Zip Code: </label>
+        <input id="zip" type="text" formControlName="zip">
+    </div> -->
+
+    <p>Complete the form to enable button.</p>
+    <button type="submit" [disabled] = '!profileForm.valid' >Submit</button>
+
+    <p>Form status: {{profileForm.status}} </p>
+    
+    <div *ngIf ="profileForm.value.firstName == '' " >
+       <p> <b>Please enter a First name</b> </p>
+    </div>
+    
+    <div *ngIf ="profileForm.value.lastName == '' " >
+        <p> <b>Please enter a Last name</b> </p>
+     </div>
+
+
+    <div *ngIf = "profileForm.value.phoneNumber!.length > 0 && profileForm.value.phoneNumber!.length < 10 && profileForm.status == 'INVALID'" >
+        <p> <b>Phone number is too small</b> </p>
+    </div>
+
+    <div *ngIf = "profileForm.value.phoneNumber!.length > 10" >
+        <p> <b>Phone number is too large</b> </p>
+    </div>
+
+    <div *ngIf = "!(profileForm.value.email!.match('@')) && profileForm.status == 'INVALID' && (profileForm.value.firstName!.length > 0 || profileForm.value.lastName!.length > 0) && profileForm.value.email!.length > 0" >
+        <p> <b>Email is wrong format</b> </p>
+    </div>
+
+
+
+    <!-- <button type="button" (click)="updateProfile()">Update Profile</button> -->
+</form>
+
+<button (click) = "displayTable()">Display Table</button>
+
+<br>
+<br>
+<br>
+
+
+<div>
+    <table *ngIf="firebaseArray.length > 0">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+        </tr>
+        <tr *ngFor="let element of firebaseArray">
+            <td>{{element.firstName}}</td>
+            <td>{{element.lastName}}</td>
+            <td>{{element.phoneNumber}}</td>
+            <td>{{element.email}}</td>
+        </tr>
+    </table>
+</div>
+
+<br>
+<br>
+
+<style>
+    table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  table tr:hover {background-color: #ddd;}
+  
+  table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+
+
+
+</style>

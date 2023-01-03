@@ -1,0 +1,7 @@
+<div [ngSwitch]="userType">
+  <div *ngSwitchCase="Type.Admin">User is Admin</div>
+  <div *ngSwitchCase="Type.Gold">User is Gold Member </div>
+  <div *ngSwitchCase="Type.Silver">User is Silver Member </div>
+  <div *ngSwitchCase="Type.Bronze">User is Bronze Member </div>
+  <div *ngSwitchDefault>User is Guest</div>
+</div>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+    <div>
+        <div th:switch="${error}">
+            <p th:case="'numberoneerror'">
+            Wrong value provided for the first number - must be a number
+            </p>
+            <p th:case="'numbertwoerror'">
+            Wrong value provided for the second number - must be a number
+            </p>
+            <p th:case="'BothFormatError'">
+                Wrong value provided for the first number and second number - must be a number
+            </p>
+        </div>
+        <form th:action="@{/convert}" method="get">
+            <table>
+                <tr>
+                    <td>
+                        <label for="numberone">First number:</label>
+                    </td>      
+                    <td>
+                        <input name="numberone" id="numberone" th:name="numberone" th:value="${numberone}">
+                    </td>            
+                </tr>
+                <tr>
+                    <td>       
+                    </td>
+                    <td>     
+                    </td>
+                </tr>
+                <tr>
+                    <td>       
+                    </td>
+                    <td>     
+                    </td>
+                </tr>
+                <tr>
+                    <td>       
+                    </td>
+                    <td>     
+                    </td>
+                </tr>
+                <tr>
+                    <td>       
+                    </td>
+                    <td>     
+                    </td>
+                </tr>
+                <tr>
+                    <td>       
+                    </td>
+                    <td>     
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="numbertwo">Second number:</label></td>
+                    <td>
+                        <input name="numbertwo" id="numbertwo" th:name="numbertwo" th:value="${numbertwo}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>       
+                    </td>
+                    <td>     
+                    </td>
+                </tr>
+                <tr>
+                    <td>       
+                    </td>
+                    <td>     
+                    </td>
+                </tr>
+                <tr>
+                    <td>       
+                    </td>
+                    <td>     
+                    </td>
+                </tr>
+                <tr>
+                    <td>       
+                    </td>
+                    <td>     
+                    </td>
+                </tr>
+                <tr>
+                    <td>       
+                    </td>
+                    <td>     
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="result">Result:</label></td>
+                    <td>
+                        <input name="result" id="result" th:name="result" th:value="${result}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" th:name="operation" th:value="add">+</button>
+                    </td>
+                    <td>
+                        <button type="submit" id = "subtract" th:name="operation" th:value="subtract">-</button>
+                    </td>
+                    <td>
+                        <button type="submit" th:name="operation" id = "multiply"  th:value="multiply">*</button>
+                    </td>
+                    <td>
+                        <button type="submit" th:name="operation" id = "divide"  th:value="divide">/</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html> 

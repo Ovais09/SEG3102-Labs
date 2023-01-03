@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-12">
+    <button class="btn btn-success" (click)="addAddress()">New Address</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="address-list col-md-3" *ngIf="addresses.length > 0">
+    <app-address-list-element
+      *ngFor="let address of addresses"
+      [address]="address"
+      (click)='select(address)'
+    >
+    </app-address-list-element>
+  </div>
+  <div class="col-md-9">
+    <app-address-view *ngIf="currentAddress !== null"
+                      [address]="currentAddress"
+                      (fireDelete)='deleteCurrent()'></app-address-view>
+  </div>
+</div>

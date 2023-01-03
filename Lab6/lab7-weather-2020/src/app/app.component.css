@@ -1,0 +1,16 @@
+#city {
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #000000;
+  background-color: darkgrey;
+  color: blue;
+  font-weight: bold;
+}
+
+#message {
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #000000;
+  background-color: beige ;
+  color: red;
+  font-weight: bold;
+  font-size: large;
+}

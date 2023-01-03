@@ -1,0 +1,26 @@
+<table>
+    <tr>
+        <td>
+            <label for = 'celsius'>Clesius:</label>
+        </td>
+        <td>
+            <input name = "celsius" id="celsius" value = "{{celsiusValue | number: '1.0-2'}}" #celsius>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="fahrenheit">Fahrenheit</label>
+        </td>
+        <td>
+            <input name = "fahrenheit"  id = "fahrenheit" value = "{{fahrenheitValue | number: '1.0-2'}}" #fahrenheit>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button (click) = "convertCelsius(celsius.value)">Celsius to Fahrenheit</button>
+        </td>
+        <td>
+            <button (click) = "convertFahrenheit(fahrenheit.value)">Fahrenheit to Celsius</button>
+        </td>
+    </tr>
+</table>

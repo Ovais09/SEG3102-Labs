@@ -1,0 +1,22 @@
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Category</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Cost</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let book of books; index as i">
+      <td>{{i+1}}</td>
+      <td>{{book.category}}</td>
+      <td>{{book.title}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.cost}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
+.class1 {
+  color: blue;
+  background-color: white;
+  font-size: 300%;
+  border-style: solid;
+  border-width: 10px
+}
+
+.class2 {
+  color: red;
+  background-color: white;
+  border-style: solid;
+  border-width: 20px
+}
+
+.class3 {
+  font-family: "Arial Black", serif;
+  font-weight: bold;
+}
